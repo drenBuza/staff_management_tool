@@ -14,8 +14,8 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'staff', component: StaffListComponent },
   { path: 'staff/add', component: AddStaffComponent },
-  { path: 'staff/edit/:id', component: EditStaffComponent, data: { RenderMode: 'ssr'} },
-  { path: 'staff/:id', component: StaffDetailComponent },
+  { path: 'staff/edit/:id', component: EditStaffComponent, data: { rendermode: RenderMode.Server} },
+  { path: 'staff/:id', component: StaffDetailComponent, data: { rendermode: RenderMode.Server} },
   { path: '**', component: NotFoundComponent } // Catch-all for 404
 ];
 
