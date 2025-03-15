@@ -1,0 +1,89 @@
+// Center the form
+.container {
+    margin: auto;
+    padding: 20px;
+}
+
+// Style the form labels
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+// Improve form inputs
+.form-control,
+.form-select {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    transition: border-color 0.3s ease-in-out;
+
+    &:focus {
+        border-color: #3EF6A2;
+        box-shadow: 0 0 5px rgba(62, 246, 162, 0.5);
+    }
+}
+
+// Error messages
+.text-danger {
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+// Button styles
+.btn-success {
+    background-color: #3EF6A2;
+    border-color: #3EF6A2;
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+
+    &:hover {
+        background-color: #2dc37a;
+        border-color: #2dc37a;
+    }
+}
+
+.btn-secondary {
+    background-color: #000000;
+    border-color: #000000;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+
+    &:hover {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+}
+
+
+// Make the form fully responsive
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+// Add animations for better UI
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Apply animation to form
+form {
+    animation: fadeIn 0.5s ease-in-out;
+}

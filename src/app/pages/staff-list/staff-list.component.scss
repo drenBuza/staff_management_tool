@@ -1,0 +1,153 @@
+.staff-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+
+    .add-staff-btn {
+        background-color: #3EF6A2 !important;
+        border: none;
+        color: black !important;
+        font-weight: bold;
+        padding: 8px 15px;
+        transition: background 0.3s ease-in-out;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: #29b573 !important;
+            color: white !important;
+        }
+
+        i {
+            margin-right: 5px;
+        }
+    }
+
+    .filter-dropdown,
+    .search-bar {
+        width: auto;
+        min-width: 120px;
+        flex-grow: 1;
+    }
+}
+
+.group-card {
+    margin-bottom: 15px;
+    border: none;
+}
+
+.group-header {
+    background-color: #f8f9fa;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex; // ✅ Ensure content is aligned properly
+    justify-content: space-between; // ✅ Push elements to the edges
+    align-items: center;
+}
+
+.group-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
+
+    &.show {
+        max-height: 1000px;
+        opacity: 1;
+    }
+}
+
+// ✅ Ensure group toggle and members badge align correctly
+.group-toggle {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+
+    i {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &.rotate i {
+        transform: rotate(90deg);
+    }
+}
+
+// ✅ Moves badge to the right of the header
+.members-badge {
+    background-color: #3EF6A2 !important;
+    color: #000 !important;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 5px 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+}
+
+// ✅ Actions section styling
+.actions {
+    display: flex;
+    gap: 5px;
+
+    a {
+        color: #3EF6A2 !important;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+            color: #29b573;
+        }
+    }
+
+    i {
+        font-size: 1.2rem;
+        padding: 3px;
+        cursor: pointer;
+
+        &:hover {
+            color: #186b45 !important;
+        }
+    }
+}
+
+// 🌟 📌 Responsive Fixes
+@media (max-width: 768px) {
+    .staff-filter {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        gap: 8px;
+
+        .add-staff-btn,
+        .filter-dropdown,
+        .search-bar {
+            width: auto;
+            min-width: 120px;
+        }
+    }
+
+    .table-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .table {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 5px;
+        font-size: 12px;
+    }
+}

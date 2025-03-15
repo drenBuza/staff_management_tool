@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <h2>Edit Staff Member</h2>
+    <form [formGroup]="staffForm" (ngSubmit)="updateStaff()">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Surname</label>
+        <input type="text" class="form-control" formControlName="surname">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Age</label>
+        <input type="number" class="form-control" formControlName="age">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Role</label>
+        <select class="form-select" formControlName="roleId">
+          <option *ngFor="let role of staffService.getRoles()" [value]="role.id">{{ role.name }}</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Department</label>
+        <select class="form-select" formControlName="departmentId">
+          <option *ngFor="let dept of staffService.getDepartments()" [value]="dept.id">{{ dept.name }}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <a routerLink="/staff" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+  </div>

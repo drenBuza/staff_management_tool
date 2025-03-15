@@ -1,0 +1,69 @@
+<div class="staff-filter">
+  <!-- Add Staff Button -->
+  <a [routerLink]="['/staff/add']" class="btn add-staff-btn">
+    <i class="bi bi-person-plus-fill"></i> Add Staff
+  </a>
+
+  <!-- Grouping Dropdown -->
+  <select class="form-select filter-dropdown" [(ngModel)]="groupBy" (change)="groupStaff()">
+    <option value="">No filter</option>
+    <option value="role">Group by Role</option>
+    <option value="department">Group by Department</option>
+    <option value="supervisor">Group by Supervisor</option>
+  </select>
+
+  <!-- Search Bar -->
+  <input type="text" class="form-control search-bar" placeholder="Search staff..." [(ngModel)]="searchTerm" (input)="filterStaff()" />
+</div>
+
+<div *ngFor="let group of groupedStaff | keyvalue">
+  <div class="card group-card">
+    <div class="card-header group-header" (click)="toggleCollapse(group.key)">
+      <h5 class="mb-0">
+        <button class="btn group-toggle" type="button">
+          <i [ngClass]="collapsedGroups[group.key] ? 'bi bi-caret-right-fill' : 'bi bi-caret-down-fill'"></i>
+          <span class="ms-2">{{ group.key }}</span>
+        </button>
+      </h5>
+      <span class="badge members-badge">{{ group.value.length }} Members</span>
+    </div>
+    <div class="group-body" [ngClass]="{'show': !collapsedGroups[group.key]}">
+      <div class="card-body">
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Role</th>
+                <th>Department</th>
+                <th>Supervisor</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let member of group.value">
+                <td>{{ member.name }}</td>
+                <td>{{ member.surname }}</td>
+                <td>{{ getRoleName(member.roleId) }}</td>
+                <td>{{ getDepartmentName(member.departmentId) }}</td>
+                <td>{{ getSupervisorName(member.supervisorId) }}</td>
+                <td class="actions">
+                  <a [routerLink]="['/staff', member.id]" class="view-icon" title="View">
+                    <i class="bi bi-eye-fill"></i>
+                  </a>
+                  <a [routerLink]="['/staff/edit', member.id]" class="edit-icon" title="Edit">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+                  <a role="button" (click)="deleteStaff(member.id)" class="delete-icon" title="Delete">
+                    <i class="bi bi-trash-fill"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.back-button-container {
+    margin-bottom: 9px;
+}
+
+.btn-back {
+    color: #000; // Black text
+    font-weight: bold;
+    border:#000;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #3EF6A2; // Darker green on hover
+    }
+
+    i {
+        margin-right: 5px;
+    }
+}

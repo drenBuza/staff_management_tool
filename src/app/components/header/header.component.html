@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- Logo -->
+    <div class="logo">
+      <h2>XPORTAL ESPORTS</h2>
+    </div>
+
+    <!-- Hamburger Menu (for mobile) -->
+    <div class="hamburger" [hidden]="toggleMenu()">☰</div>
+
+    <!-- Navigation Menu -->
+    <nav class="nav" [ngClass]="{ 'active': menuOpen }"> 
+      <a routerLink="/dashboard" class="nav-link" (click)="closeMenu()">Dashboard</a>
+      <a routerLink="/staff/add" class="nav-link" (click)="closeMenu()">Add Staff</a>
+      <a routerLink="/staff" class="nav-link" (click)="closeMenu()">Staff List</a>
+      <a routerLink="/events" class="nav-link" (click)="closeMenu()">Events</a>
+    </nav>
+  </div>
+</header>

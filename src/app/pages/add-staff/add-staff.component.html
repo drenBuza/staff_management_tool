@@ -1,0 +1,59 @@
+<div class="container mt-4">
+  <h2>Add New Staff Member</h2>
+  <form [formGroup]="staffForm" (ngSubmit)="addStaff()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <div *ngIf="staffForm.get('name')?.invalid && staffForm.get('name')?.touched" class="text-danger">
+        Name is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="surname" class="form-label">Surname</label>
+      <input id="surname" type="text" class="form-control" formControlName="surname">
+      <div *ngIf="staffForm.get('surname')?.invalid && staffForm.get('surname')?.touched" class="text-danger">
+        Surname is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input id="age" type="number" class="form-control" formControlName="age">
+      <div *ngIf="staffForm.get('age')?.invalid && staffForm.get('age')?.touched" class="text-danger">
+        Age must be between 18 and 70
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="supervisorId" class="form-label">Supervisor</label>
+      <select id="supervisorId" class="form-select" formControlName="supervisorId">
+        <option value="">No Supervisor</option>
+        <option *ngFor="let supervisor of supervisors" [value]="supervisor.id">
+          {{ supervisor.name }} {{ supervisor.surname }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="roleId" class="form-label">Role</label>
+      <select id="roleId" class="form-select" formControlName="roleId">
+        <option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</option>
+      </select>
+      <div *ngIf="staffForm.get('roleId')?.invalid && staffForm.get('roleId')?.touched" class="text-danger">
+        Role is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="departmentId" class="form-label">Department</label>
+      <select id="departmentId" class="form-select" formControlName="departmentId">
+        <option value="">No Department</option>
+        <option *ngFor="let dept of departments" [value]="dept.id">{{ dept.name }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="staffForm.invalid">Add Staff</button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="clearForm()">Clear</button>
+  </form>
+</div>

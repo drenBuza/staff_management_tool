@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+// Import Google Font (Alternative way if not added in index.html)
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top:20px;
+}
+
+.footer {
+    margin-top: auto;
+}
