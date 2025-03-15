@@ -7,13 +7,14 @@ import { StaffDetailComponent } from './pages/staff-detail/staff-detail.componen
 import { AddStaffComponent } from './pages/add-staff/add-staff.component';
 import { EditStaffComponent } from './pages/edit-staff/edit-staff.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { RenderMode } from '@angular/ssr';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'staff', component: StaffListComponent },
   { path: 'staff/add', component: AddStaffComponent },
-  { path: 'staff/edit/:id', component: EditStaffComponent },
+  { path: 'staff/edit/:id', component: EditStaffComponent, data: { RenderMode: 'ssr'} },
   { path: 'staff/:id', component: StaffDetailComponent },
   { path: '**', component: NotFoundComponent } // Catch-all for 404
 ];
