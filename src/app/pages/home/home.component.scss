@@ -1,0 +1,55 @@
+.route-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); // ✅ Responsive grid
+    gap: 20px; // ✅ Space between elements
+    padding: 20px;
+    justify-content: center;
+}
+
+.route-card {
+    background-color: #0B0F12; // ✅ Matches existing style
+    color: #3EF6A2;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+
+    &:hover {
+        transform: translateY(-5px); // ✅ Subtle hover effect
+        background-color: #13181d;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .view-button {
+        background-color: #3EF6A2;
+        color: black;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.3s ease-in-out;
+
+        &:hover {
+            background-color: #29b573;
+            color: white;
+        }
+    }
+}
+
+// ✅ Mobile Adjustments
+@media (max-width: 768px) {
+    .route-container {
+        grid-template-columns: 1fr; // ✅ Single-column layout
+    }
+}

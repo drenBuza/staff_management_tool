@@ -1,1 +1,7 @@
-<p>home works!</p>
+<div class="route-container">
+    <div class="route-card" *ngFor="let route of routesList">
+        <h2>{{ route.name }}</h2>
+        <p>Preview of latest data...</p>
+        <a [routerLink]="route.path" class="view-button">Go to {{ route.name }}</a>
+    </div>
+</div>

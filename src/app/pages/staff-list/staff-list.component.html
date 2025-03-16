@@ -13,7 +13,8 @@
   </select>
 
   <!-- Search Bar -->
-  <input type="text" class="form-control search-bar" placeholder="Search staff..." [(ngModel)]="searchTerm" (input)="filterStaff()" />
+  <input type="text" class="form-control search-bar" placeholder="Search staff..." [(ngModel)]="searchTerm"
+    (input)="filterStaff()" />
 </div>
 
 <div *ngFor="let group of groupedStaff | keyvalue">
