@@ -117,6 +117,7 @@
           "options": {
             "polyfills": [
               "zone.js",
+              "zone.js/node",
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
