@@ -17,7 +17,9 @@ export class StaffService {
     { id: 1, name: 'Director' },
     { id: 2, name: 'Coordinator' },
     { id: 3, name: 'Chief' },
-    { id: 4, name: 'Angel' }
+    { id: 4, name: 'Angel' },
+    { id: 5, name: 'Referee' },
+    { id: 6, name: 'Technician' },
   ];
 
   private departments: Department[] = [
@@ -28,7 +30,7 @@ export class StaffService {
     { id: 5, name: 'Logistics' }
   ];
 
-  constructor() {}
+  constructor() { }
 
   getStaff(): Observable<StaffMember[]> {
     return this.staff$;
@@ -49,7 +51,7 @@ export class StaffService {
   getRoleName(roleId: number): string {
     return this.roles.find(role => role.id === roleId)?.name || 'Unknown Role';
   }
-  
+
   getDepartmentName(departmentId?: number): string {
     return departmentId ? this.departments.find(dept => dept.id === departmentId)?.name || 'Unknown Department' : 'No Department';
   }
@@ -76,20 +78,20 @@ export class StaffService {
       this.staffSubject.next(this.staffMembers);
     }
   }
-  
+
   deleteStaffMember(id: number) {
     this.staffMembers = this.staffMembers.filter(member => member.id !== id);
     this.saveStaffToStorage();
     this.staffSubject.next(this.staffMembers);
   }
-  
+
 
   private loadStaffFromStorage(): StaffMember[] {
     const savedStaff = localStorage.getItem('StaffMembers');
     const staff = savedStaff ? JSON.parse(savedStaff) : [];
     return staff;
   }
-  
+
 
   private saveStaffToStorage() {
     localStorage.setItem('StaffMembers', JSON.stringify(this.staffMembers));

@@ -17,8 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/staff_management_tool",
+            "outputPath": "dist",
             "index": "src/index.html",
+            "baseHref": "/",
+            "deployUrl": "/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -59,7 +61,10 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true
             },
             "development": {
               "optimization": false,
@@ -69,17 +74,40 @@
           },
           "defaultConfiguration": "production"
         },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:server",
+          "configurations": {
+            "production": {
+              "buildTarget": "staff_management_tool:build:production"
+            }
+          }
+        },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "staff_management_tool:build:production"
+              "browserTarget": "staff_management_tool:build:production"
             },
             "development": {
-              "buildTarget": "staff_management_tool:build:development"
+              "browserTarget": "staff_management_tool:build:development"
             }
           },
           "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ],
+            "guessRoutes": false
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "staff_management_tool:build:production",
+              "serverTarget": "staff_management_tool:server:production"
+            }
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"

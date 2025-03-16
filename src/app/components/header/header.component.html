@@ -5,11 +5,12 @@
       <h2>XPORTAL ESPORTS</h2>
     </div>
 
-    <!-- Hamburger Menu (for mobile) -->
-    <div class="hamburger" [hidden]="toggleMenu()">☰</div>
+    <!-- Hamburger Menu (Only for Mobile) -->
+    <button class="hamburger" [ngClass]="{ 'active': menuOpen }" (click)="toggleMenu()">☰</button>
+
 
     <!-- Navigation Menu -->
-    <nav class="nav" [ngClass]="{ 'active': menuOpen }"> 
+    <nav class="nav" [ngClass]="{ 'active': menuOpen }">
       <a routerLink="/dashboard" class="nav-link" (click)="closeMenu()">Dashboard</a>
       <a routerLink="/staff/add" class="nav-link" (click)="closeMenu()">Add Staff</a>
       <a routerLink="/staff" class="nav-link" (click)="closeMenu()">Staff List</a>

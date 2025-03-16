@@ -98,6 +98,7 @@
 .actions {
     display: flex;
     gap: 5px;
+    white-space: nowrap; // 🔥 Prevents wrapping for mobile alignment
 
     a {
         color: #3EF6A2 !important;
@@ -119,7 +120,33 @@
     }
 }
 
-// 🌟 📌 Responsive Fixes
+// 🌟 ✅ Light Tint Background for Table (Like Activity Logs)
+.table-container {
+    background-color: rgba(255, 255, 255, 0.05); // Light mode tint
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// ✅ Table Row Background Tint (Like Activity Logs)
+tbody tr {
+    background-color: rgba(240, 240, 240, 0.2); // Light grey tint
+    transition: background 0.3s ease-in-out;
+
+    &:hover {
+        background-color: rgba(240, 240, 240, 0.4); // Slightly darker on hover
+    }
+}
+
+// ✅ Table Header (Consistent Design)
+thead {
+    background: rgba(255, 255, 255, 0.1); // Light transparent tint
+    color: #0B0F12; // Darker text for contrast
+    font-weight: bold;
+    font-size: 14px;
+}
+
+// ✅ Mobile-Specific Adjustments
 @media (max-width: 768px) {
     .staff-filter {
         flex-direction: row;
@@ -142,12 +169,69 @@
 
     .table {
         width: 100%;
-        font-size: 12px;
+        font-size: 16px; // 🔥 Increased font size for readability
+        border-collapse: collapse;
+    }
+
+    /* ✅ Fix for actions misalignment */
+    th,
+    td {
+        padding: 12px;
+        font-size: 18px; // 🔥 Larger font for readability
+        vertical-align: middle; // ✅ Ensures all rows align correctly
+        white-space: nowrap; // ✅ Prevents text wrapping in mobile
+    }
+
+    /* ✅ Prevent line break for actions */
+    .actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap; // 🔥 Keeps icons inline in mobile
+    }
+
+    /* ✅ Keep headers fixed in mobile */
+    thead {
+        background: #0B0F12;
+        color: #3EF6A2;
+        font-weight: bold;
+        font-size: 16px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+}
+
+/* ✅ Desktop Fixes (Keep Columns Static) */
+@media (min-width: 769px) {
+    .table {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
     }
 
     th,
     td {
-        padding: 5px;
-        font-size: 12px;
+        padding: 10px;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* ✅ Ensure columns remain fixed */
+    thead th {
+        position: sticky;
+        font-size: 25px;
+        top: 0;
+        z-index: 10;
+    }
+
+    tbody tr {
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: rgba(62, 246, 162, 0.2);
+        }
     }
 }

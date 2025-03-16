@@ -17,7 +17,7 @@
         font-weight: bold;
         text-decoration: none;
         transition: opacity 0.3s ease-in-out;
-        font-size: 1.5rem; // Adjusted for better scaling
+        font-size: 1.5rem;
 
         &:hover {
             opacity: 0.8;
@@ -30,7 +30,7 @@
 
         .nav-link {
             text-decoration: none;
-            color: #3EF6A2; // Neon Green
+            color: #3EF6A2;
             font-weight: bold;
             padding: 10px 15px;
             border-radius: 5px;
@@ -42,41 +42,41 @@
         }
     }
 
-    // 🌟 Responsive Styles for Smaller Screens
-    @media (max-width: 992px) {
-        .container {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .nav {
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 10px;
+    // 🌟 Hide Hamburger on Desktop
+    @media (min-width: 769px) {
+        .hamburger {
+            display: none !important;
         }
     }
 
+    // 🌟 Mobile Styles
     @media (max-width: 768px) {
-        .nav {
-            display: none; // Hide the nav by default
-            flex-direction: column;
-            text-align: center;
-            width: 100%;
-            background-color: #0B0F12;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            padding: 10px 0;
-            z-index: 1000;
-            transform: translateY(-10px);
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        .container {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
         }
 
-        .nav.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
+        .nav {
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #0B0F12;
+            padding: 10px 0;
+            z-index: 1000;
+            transform: translateY(-20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s;
+
+            &.active {
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
+            }
         }
 
         .hamburger {
@@ -92,10 +92,10 @@
             &:hover {
                 opacity: 0.8;
             }
-        }
 
-        .hamburger.active {
-            transform: rotate(90deg);
+            &.active {
+                transform: rotate(90deg);
+            }
         }
     }
 }
