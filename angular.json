@@ -17,10 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/staff_management_tool/browser",
+            "outputPath": "dist/staff_management_tool",
             "index": "src/index.html",
-            "baseHref": "/",
-            "deployUrl": "/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -61,10 +59,7 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all",
-              "optimization": true,
-              "sourceMap": false,
-              "extractLicenses": true
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
@@ -73,14 +68,6 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@angular-devkit/build-angular:server",
-          "configurations": {
-            "production": {
-              "buildTarget": "staff_management_tool:build:production"
-            }
-          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -94,21 +81,6 @@
           },
           "defaultConfiguration": "development"
         },
-        "prerender": {
-          "builder": "@angular-devkit/build-angular:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ],
-            "guessRoutes": false
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "staff_management_tool:build:production",
-              "serverTarget": "staff_management_tool:server:production"
-            }
-          }
-        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
         },
@@ -116,7 +88,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
-              "zone.js/node",
+              "zone.js",
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
