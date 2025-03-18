@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/staff_management_tool",
+            "outputPath": "dist/staff_management_tool/browser",
             "index": "src/index.html",
             "baseHref": "/",
             "deployUrl": "/",
@@ -116,7 +116,6 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
-              "zone.js",
               "zone.js/node",
               "zone.js/testing"
             ],

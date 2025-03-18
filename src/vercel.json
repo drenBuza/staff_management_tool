@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
         {
-            "src": "angular.json",
-            "use": "@vercel/angular"
+            "src": "dist/staff_management_tool/server/server.mjs",
+            "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "dist/staff_management_tool/server/server.mjs"
         }
     ]
 }
