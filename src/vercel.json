@@ -11,5 +11,11 @@
             "src": "/(.*)",
             "dest": "dist/staff_management_tool/server/server.mjs"
         }
+    ],
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
     ]
 }
