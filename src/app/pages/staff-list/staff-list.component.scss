@@ -98,27 +98,25 @@
 .actions {
     display: flex;
     gap: 5px;
-    white-space: nowrap; // 🔥 Prevents wrapping for mobile alignment
+    white-space: nowrap;
 
     a {
-        color: #3EF6A2 !important;
+        color: #29b573 !important; // ✅ Updated color
         transition: color 0.3s ease-in-out;
 
         &:hover {
-            color: #29b573;
+            color: #186b45; // ✅ Optional: darker shade on hover
         }
     }
 
     i {
-        font-size: 1.2rem;
+        color: #29b573 !important; // ✅ Updated color
+        font-size: 1.4rem; // ✅ Optional: increase icon size slightly
         padding: 3px;
         cursor: pointer;
-
-        &:hover {
-            color: #186b45 !important;
-        }
     }
 }
+
 
 // 🌟 ✅ Light Tint Background for Table (Like Activity Logs)
 .table-container {
@@ -145,6 +143,97 @@ thead {
     font-weight: bold;
     font-size: 14px;
 }
+
+// 🌟 Modal Popup Styling
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+
+    &.show {
+        display: flex;
+    }
+}
+
+.modal-dialog {
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 1200px;  
+    max-height: 500px;
+    width: 90%;
+    height: 90%;
+    padding: 30px; 
+    animation: fadeIn 0.3s ease-in-out;
+  }  
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .modal-title {
+        font-size: 2.1rem;
+        font-weight: bold;
+    }
+
+    .btn-close {
+        background: none;
+        border: none;
+        font-size: 1.4rem;
+        cursor: pointer;
+        color: #888;
+    }
+}
+
+.modal-body {
+    margin-top: 15px;
+
+    p {
+        margin: 8px 0;
+        font-size: 1.8rem;
+        line-height: 1.4;
+
+        strong {
+            color: #2db477;
+        }
+    }
+}
+
+.view-icon {
+    color: #29b573 !important;
+    font-size: 1.5rem; // or larger if needed
+    transition: color 0.2s ease-in-out;
+  
+    &:hover {
+      color: #186b45 !important;
+    }
+  
+    i {
+      font-size: inherit;
+      vertical-align: middle;
+    }
+  }
+  
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 
 // ✅ Mobile-Specific Adjustments
 @media (max-width: 768px) {

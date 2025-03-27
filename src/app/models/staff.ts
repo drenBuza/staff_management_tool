@@ -1,9 +1,21 @@
-export interface StaffMember {
-    id: number;
+export interface Staff {
+  id: string;
+  name: string;
+  surname: string;
+  gamertag: string;
+  workgroup: string | null;
+  staff_roles: {
+    id: string;
     name: string;
-    surname: string;
-    age: number;
-    supervisorId?: number;
-    roleId: number;
-    departmentId?: number;
-  }  
+    description: string;
+    subcategories: {
+      id: string;
+      name: string;
+      categories: {
+        id: string;
+        name: string;
+        description: string;
+      };
+    };
+  };
+}
