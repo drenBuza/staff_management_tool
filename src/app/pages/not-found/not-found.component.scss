@@ -1,0 +1,62 @@
+.not-found-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0b0f12;
+    color: #3EF6A2;
+    text-align: center;
+    padding: 20px;
+
+    .status-code {
+        font-size: 6rem;
+        font-weight: 900;
+        color: #ff4d4f;
+        margin-bottom: 0;
+    }
+
+    .message {
+        margin-top: -10px;
+
+        .emoji {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .sub-text {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #ffffffcc;
+
+            .happy-emoji {
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    .back-btn {
+        margin-top: 30px;
+
+        .btn-home {
+            padding: 10px 20px;
+            background-color: #29b573;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #3EF6A2;
+                color: #000;
+            }
+        }
+    }
+}

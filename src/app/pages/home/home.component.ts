@@ -11,8 +11,8 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent {
   routesList = [
-    { path: '/dashboard', name: 'Dashboard' },
-    { path: '/staff', name: 'Staff' },
-    { path: '/events', name: 'Events' }
+    //{ path: '/dashboard', name: 'Dashboard' },
+    { path: '/staff-roles-summary', name: 'Staff Summary' },
+    //{ path: '/events', name: 'Events' }
   ];
 }

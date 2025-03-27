@@ -7,8 +7,13 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'staff', component: StaffListComponent },
+  //{ path: 'dashboard', component: DashboardComponent },
+  //{ path: 'staff', component: StaffListComponent },
+  {
+    path: 'staff-roles-summary',
+    loadComponent: () =>
+      import('./pages/staff-roles/staff-roles-summary.component').then((m) => m.StaffRolesSummaryComponent)
+  },
   { path: '**', component: NotFoundComponent } // Catch-all for 404
 ];
 

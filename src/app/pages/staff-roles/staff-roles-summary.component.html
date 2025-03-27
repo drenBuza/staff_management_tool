@@ -1,0 +1,30 @@
+<div class="view-toggle">
+    <button (click)="toggleView('summary')" [class.active]="viewMode === 'summary'">List View</button>
+    <button (click)="toggleView('graph')" [class.active]="viewMode === 'graph'">Graph View</button>
+</div>
+
+<!-- 🔍 Summary View -->
+<div *ngIf="viewMode === 'summary'" class="role-summary-container">
+    <div *ngFor="let category of grouped | keyvalue" class="category-card">
+        <div class="category-header">{{ category.key }}</div>
+
+        <div *ngFor="let sub of category.value | keyvalue" class="subcategory-section">
+            <div class="subcategory-header">
+                <i class="bi bi-diagram-3-fill"></i>
+                {{ sub.key }}
+            </div>
+
+            <div class="roles-wrapper">
+                <div *ngFor="let role of sub.value" class="role-pill">
+                    <span class="role-name">{{ role.name }}</span>
+                    <span class="staff-badge">{{ role.staffCount }} STAFF</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 📊 Graph View -->
+<div *ngIf="viewMode === 'graph'" class="chart-container">
+    <canvas baseChart [type]="pieType" [data]="pieData" [options]="pieOptions"></canvas>
+</div>

@@ -1,0 +1,198 @@
+.role-summary-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+}
+
+.category-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+}
+
+.category-header {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #29b573;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 6px;
+}
+
+.subcategory-section {
+    margin-top: 20px;
+}
+
+.subcategory-header {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #29b573;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+
+    i {
+        font-size: 1rem;
+    }
+}
+
+.roles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.role-pill {
+    background-color: #f0fdf6;
+    border: 1px solid #29b573;
+    color: #0b0f12;
+    border-radius: 20px;
+    padding: 6px 15px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .role-name {
+        font-weight: 600;
+    }
+
+    .staff-badge {
+        background-color: #3EF6A2;
+        color: #000;
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding: 2px 8px;
+        border-radius: 12px;
+    }
+}
+
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    button {
+        padding: 8px 20px;
+        background: #f0f0f0;
+        border: 1px solid #ccc;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &.active {
+            background-color: #29b573;
+            color: white;
+            border-color: #29b573;
+        }
+
+        &:hover {
+            background-color: #3EF6A2;
+            color: black;
+        }
+    }
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.role-summary-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+}
+
+.category-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+}
+
+.category-header {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #29b573;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 6px;
+}
+
+.subcategory-section {
+    margin-top: 20px;
+}
+
+.subcategory-header {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #29b573;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+
+    i {
+        font-size: 1rem;
+    }
+}
+
+.roles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.role-pill {
+    background-color: #f0fdf6;
+    border: 1px solid #29b573;
+    color: #0b0f12;
+    border-radius: 20px;
+    padding: 6px 15px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .role-name {
+        font-weight: 600;
+    }
+
+    .staff-badge {
+        background-color: #3EF6A2;
+        color: #000;
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding: 2px 8px;
+        border-radius: 12px;
+    }
+}
+
+
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .roles-wrapper {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
